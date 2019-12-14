@@ -5,6 +5,27 @@
   <%= f.text_field :title %>
   <br />
 
+  <label>Artist Name:</label>
+  <input type="text" id="song_artist_name" name="song[artist_name]"><br />
+
+
+    <label for="song_genre_id">Song Genre: </label>
+    <input type="text" id="song_genre_id" list="song_genre_name" name="song[genre_name]">
+    <datalist id="song_genre_name">
+      <% Genre.all.each do |genre| %>
+        <option value="<%= genre.name %>">
+      <% end %>
+    </datalist><br />
+
+    <label for="song_notes_attributes_0_content">Note 1: </label><br />
+    <textarea id="song_notes_attributes_0_content" name="song[notes_contents][]"></textarea>
+    <br />
+
+    <label for="song_note_attributes_1_content">Note 2: </label><br />
+    <textarea id="song_notes_attributes_1_content" name="song[notes_contents][]"></textarea>
+    <br />
+
+
   <%= f.submit %>
 <% end %>
 
